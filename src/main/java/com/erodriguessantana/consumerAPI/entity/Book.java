@@ -8,9 +8,19 @@ public class Book {
 	private Integer chapters;
 	private String isbn;
 	private String publisherName;
+		
+	public Book() {
+	}
 	
-	
-	
+	public Book(Long id, String name, Integer pages, Integer chapters, String isbn, String publisherName) {
+		this.id = id;
+		this.name = name;
+		this.pages = pages;
+		this.chapters = chapters;
+		this.isbn = isbn;
+		this.publisherName = publisherName;
+	}
+
 	public Long getId() {
 		return id;
 	}
