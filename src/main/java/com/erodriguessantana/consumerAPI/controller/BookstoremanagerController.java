@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.erodriguessantana.consumerAPI.entity.Book;
+import com.erodriguessantana.consumerAPI.entity.ResponseBookAuthor;
 import com.erodriguessantana.consumerAPI.service.IBookstoremanager;
 
 @RestController
@@ -20,6 +21,13 @@ public class BookstoremanagerController {
 	@GetMapping("{id}")
 	public ResponseEntity<Book> getBookByID(@PathVariable Long id) {
 		Book book = iBookstoremanager.getBookByID(id);
+		
+		return book != null ? ResponseEntity.ok().body(book) : ResponseEntity.notFound().build();
+	}
+	
+	@GetMapping("bookwithauthor/{id}")
+	public ResponseEntity<ResponseBookAuthor> getBookAndAuthorByID(@PathVariable Long id) {
+		ResponseBookAuthor book = iBookstoremanager.getBookAndAuthorByID(id);
 		
 		return book != null ? ResponseEntity.ok().body(book) : ResponseEntity.notFound().build();
 	}

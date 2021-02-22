@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import com.erodriguessantana.consumerAPI.entity.Book;
+import com.erodriguessantana.consumerAPI.entity.ResponseBookAuthor;
 
 @Component
 @FeignClient(url = "localhost:8080", path = "/api/v1/books/", name = "bookstoremanager")
@@ -13,4 +14,7 @@ public interface IBookstoremanager {
 
 	@GetMapping("/{id}")
 	Book getBookByID(@PathVariable("id") Long id);
+	
+	@GetMapping("/bookwithauthor/{id}")
+	ResponseBookAuthor getBookAndAuthorByID(@PathVariable("id") Long id);
 }
