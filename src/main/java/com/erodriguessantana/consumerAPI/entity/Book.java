@@ -8,6 +8,7 @@ public class Book {
 	private Integer chapters;
 	private String isbn;
 	private String publisherName;
+	private Long idAuthor;
 		
 	public Book() {
 	}
@@ -58,6 +59,12 @@ public class Book {
 		this.publisherName = publisherName;
 	}
 	
-	
+	public Long getIdAuthor() {
+		return idAuthor;
+	}
+
+	public void setIdAuthor(Long idAuthor) {
+		this.idAuthor = idAuthor;
+	}
 
 }

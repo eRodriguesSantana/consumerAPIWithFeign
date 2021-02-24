@@ -4,6 +4,8 @@ import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import com.erodriguessantana.consumerAPI.entity.Book;
 import com.erodriguessantana.consumerAPI.entity.ResponseBookAuthor;
@@ -17,4 +19,7 @@ public interface IBookstoremanager {
 	
 	@GetMapping("/bookwithauthor/{id}")
 	ResponseBookAuthor getBookAndAuthorByID(@PathVariable("id") Long id);
+	
+	@PostMapping("/create")
+	Book save(@RequestBody Book book);
 }
