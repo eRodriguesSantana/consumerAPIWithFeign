@@ -5,6 +5,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import com.erodriguessantana.consumerAPI.entity.Book;
@@ -22,4 +23,7 @@ public interface IBookstoremanager {
 	
 	@PostMapping("/create")
 	Book save(@RequestBody Book book);
+	
+	@PutMapping("/{id}")
+	Book update(@RequestBody Book book, @PathVariable Long id);
 }

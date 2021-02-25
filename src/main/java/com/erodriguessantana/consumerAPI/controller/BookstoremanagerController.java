@@ -37,7 +37,8 @@ public class BookstoremanagerController {
 	@PostMapping("/create")
 	public ResponseEntity<Book> save(@RequestBody Book book) {
 		Book saveBook = iBookstoremanager.save(book);
-		
-		return ResponseEntity.ok().body(saveBook);
+		return saveBook != null ? ResponseEntity.ok().body(saveBook) : ResponseEntity.notFound().build();
 	}
+	
+	
 }
