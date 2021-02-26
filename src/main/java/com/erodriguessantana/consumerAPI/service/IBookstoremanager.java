@@ -24,6 +24,6 @@ public interface IBookstoremanager {
 	@PostMapping("/create")
 	Book save(@RequestBody Book book);
 	
-	@PutMapping("/{id}")
+	@PutMapping("/update/{id}")
 	Book update(@RequestBody Book book, @PathVariable Long id);
 }

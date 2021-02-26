@@ -41,7 +41,7 @@ public class BookstoremanagerController {
 		return saveBook != null ? ResponseEntity.ok().body(saveBook) : ResponseEntity.notFound().build();
 	}
 	
-	@PutMapping("/{id}")
+	@PutMapping("/update/{id}")
 	public ResponseEntity<?> update(@RequestBody Book book, @PathVariable Long id) {
 		Book saveBook = iBookstoremanager.update(book, id);
 		
