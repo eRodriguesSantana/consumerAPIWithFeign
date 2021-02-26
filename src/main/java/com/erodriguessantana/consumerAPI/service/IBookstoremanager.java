@@ -2,6 +2,7 @@ package com.erodriguessantana.consumerAPI.service;
 
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -26,4 +27,7 @@ public interface IBookstoremanager {
 	
 	@PutMapping("/update/{id}")
 	Book update(@RequestBody Book book, @PathVariable Long id);
+	
+	@DeleteMapping("/delete/{id}")
+	Book delete(@PathVariable Long id);
 }
