@@ -4,6 +4,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -20,14 +21,14 @@ public class BookstoremanagerController {
 		this.iBookstoremanager = iBookstoremanager;
 	}
 	
-	@GetMapping("{id}")
+	@GetMapping("/{id}")
 	public ResponseEntity<Book> getBookByID(@PathVariable Long id) {
 		Book book = iBookstoremanager.getBookByID(id);
 		
 		return book != null ? ResponseEntity.ok().body(book) : ResponseEntity.notFound().build();
 	}
 	
-	@GetMapping("bookwithauthor/{id}")
+	@GetMapping("/bookwithauthor/{id}")
 	public ResponseEntity<ResponseBookAuthor> getBookAndAuthorByID(@PathVariable Long id) {
 		ResponseBookAuthor book = iBookstoremanager.getBookAndAuthorByID(id);
 		
@@ -40,5 +41,11 @@ public class BookstoremanagerController {
 		return saveBook != null ? ResponseEntity.ok().body(saveBook) : ResponseEntity.notFound().build();
 	}
 	
+	@PutMapping("/{id}")
+	public ResponseEntity<?> update(@RequestBody Book book, @PathVariable Long id) {
+		Book saveBook = iBookstoremanager.update(book, id);
+		
+		return saveBook != null ? ResponseEntity.ok().body(saveBook) : ResponseEntity.notFound().build(); 
+	}
 	
 }
