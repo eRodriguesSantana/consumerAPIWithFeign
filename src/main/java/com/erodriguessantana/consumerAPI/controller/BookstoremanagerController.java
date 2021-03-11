@@ -1,5 +1,7 @@
 package com.erodriguessantana.consumerAPI.controller;
 
+import java.util.List;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,6 +22,11 @@ public class BookstoremanagerController {
 
 	public BookstoremanagerController(IBookstoremanager iBookstoremanager) {
 		this.iBookstoremanager = iBookstoremanager;
+	}
+	
+	@GetMapping("/")
+	public List<Book> getAll() {
+		return iBookstoremanager.getAll();		
 	}
 
 	@GetMapping("/{id}")

@@ -1,5 +1,7 @@
 package com.erodriguessantana.consumerAPI.service;
 
+import java.util.List;
+
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -16,6 +18,9 @@ import com.erodriguessantana.consumerAPI.entity.ResponseBookAuthor;
 @FeignClient(url = "localhost:8080", path = "/api/v1/books/", name = "bookstoremanager")
 public interface IBookstoremanager {
 
+	@GetMapping("/")
+	List<Book> getAll();
+	
 	@GetMapping("/{id}")
 	Book getBookByID(@PathVariable("id") Long id);
 	
