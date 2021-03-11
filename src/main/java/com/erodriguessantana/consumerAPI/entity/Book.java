@@ -11,6 +11,7 @@ public class Book {
 	private String publisherName;
 	private Long idAuthor;
 	private String bookType;
+	private Double discount;
 
 	public Book() {
 	}
@@ -96,6 +97,10 @@ public class Book {
 
 	public void setBookType(String bookType) {
 		this.bookType = bookType;
+	}
+
+	public Double getDiscount() {
+		return discount;
 	}
 
 }
